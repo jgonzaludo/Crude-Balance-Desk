@@ -62,6 +62,10 @@ async function at(tableId, params = {}, method = 'GET', body = null) {
     if (Array.isArray(v)) v.forEach(i => url.searchParams.append(k, i));
     else url.searchParams.set(k, v);
   }
+  // We pass field IDs (not names) in fields[]/sort, so tell Airtable to read AND
+  // return them by ID. Without this, the API treats them as names, finds nothing,
+  // and returns records with empty fields — which is what caused "No readings found".
+  if (method === 'GET') url.searchParams.set('returnFieldsByFieldId', 'true');
   const res = await fetch(url, {
     method,
     headers: {
