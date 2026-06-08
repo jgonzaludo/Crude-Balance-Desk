@@ -11,7 +11,7 @@
 const BASE_ID        = 'appwfAVRbXQXFXg2e';
 const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
 const GEMINI_KEY     = process.env.GEMINI_KEY;
-const GEMINI_MODEL   = 'gemini-2.0-flash'; // update if AI Studio shows a newer model
+const GEMINI_MODEL   = 'gemini-2.5-flash'; // update if AI Studio shows a newer model
 
 if (!AIRTABLE_TOKEN || !GEMINI_KEY) {
   console.error('Missing AIRTABLE_TOKEN or GEMINI_KEY env vars.');
