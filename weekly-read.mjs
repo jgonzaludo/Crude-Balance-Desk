@@ -116,8 +116,6 @@ const allReadings = await fetchAll(T.readings, {
     F.readingKey, F.readingWeek, F.readingValue,
     F.readingSeries, F.readingWoW, F.readingPctSeas, F.readingFlag,
   ],
-  'sort[0][field]':     F.readingWeek,
-  'sort[0][direction]': 'desc',
 });
 
 const latestWeek = allReadings[0]?.fields[F.readingWeek];
