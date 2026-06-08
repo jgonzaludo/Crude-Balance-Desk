@@ -118,7 +118,11 @@ const allReadings = await fetchAll(T.readings, {
   ],
 });
 
-const latestWeek = allReadings[0]?.fields[F.readingWeek];
+const latestWeek = allReadings
+  .map(r => r.fields[F.readingWeek])
+  .filter(Boolean)
+  .sort()
+  .at(-1);
 if (!latestWeek) throw new Error('No readings found in the base.');
 console.log(`Latest week: ${latestWeek}`);
 
